@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employees - HR Payroll System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="sidebar">
+    
+    <div class="sidebar-logo">
+  <img src="logo1.png" alt="Company Logo" style="width: 32px; height: 32px; border-radius: 6px;"> 
+  PayMaster HR
+</div>
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+      <li><a href="employees.html" class="active"><i class="fa-solid fa-users"></i> Employees</a></li>
+      <li><a href="salary.html"><i class="fa-solid fa-wallet"></i> Salary Details</a></li>
+      <li><a href="payroll.html"><i class="fa-solid fa-money-check-dollar"></i> Payroll</a></li>
+      <li><a href="reports.html"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+    </ul>
+  </div>
+  <div class="wrapper">
+    <header class="top-navbar">
+      <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search employee records..."></div>
+    </header>
+    <main class="main-content">
+      <h1 class="page-title">Employee Directory</h1>
+      <div class="content-card">
+        <h3>Add New Employee</h3>
+        <form onsubmit="handleAddEmployee(event)" class="form-grid" style="margin-top:15px;">
+          <div class="form-group"><label>Full Name</label><input type="text" id="e-name" required></div>
+          <div class="form-group"><label>Department</label><input type="text" id="e-dept" required></div>
+          <div class="form-group"><label>Designation</label><input type="text" id="e-desig" required></div>
+          <div class="form-group"><label>Phone</label><input type="text" id="e-phone"></div>
+          <div class="form-group"><label>Email</label><input type="email" id="e-email" required></div>
+          <div class="form-group"><label>Joining Date</label><input type="date" id="e-date" required></div>
+          <div class="form-group" style="justify-content: flex-end;"><button type="submit" class="btn-primary">Add Employee</button></div>
+        </form>
+      </div>
+      <div class="content-card">
+        <h3>All Employee Records</h3>
+        <table id="emp-table">
+          <thead><tr><th>ID</th><th>Name</th><th>Department</th><th>Designation</th><th>Email</th><th>Joining Date</th><th>Action</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="main.js"></script>
+  <script>initEmployees();</script>
+</body>
+</html>

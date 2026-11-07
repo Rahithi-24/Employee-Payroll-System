@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reports - HR Payroll System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-logo">
+  <img src="logo1.png" alt="Company Logo" style="width: 32px; height: 32px; border-radius: 6px;"> 
+  PayMaster HR
+</div>
+    
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+      <li><a href="employees.html"><i class="fa-solid fa-users"></i> Employees</a></li>
+      <li><a href="salary.html"><i class="fa-solid fa-wallet"></i> Salary Details</a></li>
+      <li><a href="payroll.html"><i class="fa-solid fa-money-check-dollar"></i> Payroll</a></li>
+      <li><a href="reports.html" class="active"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+    </ul>
+  </div>
+  <div class="wrapper">
+    <header class="top-navbar"><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search report records..."></div></header>
+    <main class="main-content">
+      <h1 class="page-title">Executive Salary & Payslip Reports</h1>
+      <div class="cards-grid">
+        <div class="card"><div class="card-info"><h4>Total Net Disbursed</h4><p id="report-total-payout">$0</p></div><div class="card-icon icon-green"><i class="fa-solid fa-receipt"></i></div></div>
+      </div>
+      <div class="content-card">
+        <h3>Detailed Employee Payslip Ledger</h3>
+        <table id="report-table">
+          <thead><tr><th>Transaction Ref</th><th>Employee</th><th>Base Salary</th><th>Allowances</th><th>Deductions</th><th>Net Payable</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="main.js"></script>
+  <script>initReports();</script>
+  <!-- Payslip Modal -->
+<div id="payslipModal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="payslip-header">
+      <h2>PayMaster HR Technologies Ltd.</h2>
+      <p>Monthly Salary Statement / Official Payslip</p>
+    </div>
+    <div id="payslip-content">
+      <!-- Dynamic content inserted via JavaScript -->
+    </div>
+    <div class="modal-actions">
+      <button onclick="window.print()" class="btn-primary" style="background:#16A34A;"><i class="fa-solid fa-print"></i> Print Payslip</button>
+      <button onclick="closePayslipModal()" class="btn-primary" style="background:#64748B;">Close</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

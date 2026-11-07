@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - HR Payroll System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="sidebar">
+<div class="sidebar-logo">
+  <img src="logo1.png" alt="Company Logo" style="width: 32px; height: 32px; border-radius: 6px;"> 
+  PayMaster HR
+</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+      <li><a href="employees.html"><i class="fa-solid fa-users"></i> Employees</a></li>
+      <li><a href="salary.html"><i class="fa-solid fa-wallet"></i> Salary Details</a></li>
+      <li><a href="payroll.html"><i class="fa-solid fa-money-check-dollar"></i> Payroll</a></li>
+      <li><a href="reports.html"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+    </ul>
+  </div>
+  <div class="wrapper">
+    <header class="top-navbar">
+      <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search employees, payroll..."></div>
+      <div class="profile-section"><div class="profile-badge"><i class="fa-solid fa-user-shield"></i> Admin HR</div></div>
+    </header>
+    <main class="main-content">
+      <h1 class="page-title">Executive Dashboard</h1>
+      
+      <!-- Summary Cards -->
+      <div class="cards-grid">
+        <div class="card"><div class="card-info"><h4>Total Employees</h4><p id="stat-emp">0</p></div><div class="card-icon icon-blue"><i class="fa-solid fa-users"></i></div></div>
+        <div class="card"><div class="card-info"><h4>Total Paid Payroll</h4><p id="stat-payroll">₹0</p></div><div class="card-icon icon-green"><i class="fa-solid fa-circle-check"></i></div></div>
+        <div class="card"><div class="card-info"><h4>Total Base Salary Pool</h4><p id="stat-salary">₹0</p></div><div class="card-icon icon-blue"><i class="fa-solid fa-scale-balanced"></i></div></div>
+        <div class="card"><div class="card-info"><h4>Pending Payments</h4><p id="stat-pending">0</p></div><div class="card-icon icon-red"><i class="fa-solid fa-clock"></i></div></div>
+      </div>
+
+      <!-- Analytics Visual Charts Grid -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 30px;">
+        <div class="content-card" style="margin-bottom: 0;">
+          <h3>Department Salary Distribution (₹)</h3>
+          <div style="position: relative; height: 260px; width: 100%;">
+            <canvas id="deptBarChart"></canvas>
+          </div>
+        </div>
+        <div class="content-card" style="margin-bottom: 0;">
+          <h3>Payment Status</h3>
+          <div style="position: relative; height: 260px; width: 100%;">
+            <canvas id="statusDoughnutChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity Table -->
+      <div class="content-card">
+        <h3>Recent Monthly Payroll Activity</h3>
+        <table id="dash-table">
+          <thead><tr><th>Employee</th><th>Department</th><th>Net Salary</th><th>Payment Date</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="main.js"></script>
+  <script>initDashboard();</script>
+</body>
+</html>

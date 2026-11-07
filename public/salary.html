@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Salary Structure - HR Payroll System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="sidebar">
+   
+    <div class="sidebar-logo">
+  <img src="logo1.png" alt="Company Logo" style="width: 32px; height: 32px; border-radius: 6px;"> 
+  PayMaster HR
+</div>
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+      <li><a href="employees.html"><i class="fa-solid fa-users"></i> Employees</a></li>
+      <li><a href="salary.html" class="active"><i class="fa-solid fa-wallet"></i> Salary Details</a></li>
+      <li><a href="payroll.html"><i class="fa-solid fa-money-check-dollar"></i> Payroll</a></li>
+      <li><a href="reports.html"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+    </ul>
+  </div>
+  <div class="wrapper">
+    <header class="top-navbar"><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search salary structures..."></div></header>
+    <main class="main-content">
+      <h1 class="page-title">Salary Configuration & Net Salary Calculator</h1>
+      <div class="content-card">
+        <h3>Configure Employee Salary</h3>
+        <form onsubmit="handleSaveSalary(event)" class="form-grid" style="margin-top:15px;">
+          <div class="form-group"><label>Employee</label><select id="s-emp-select" required></select></div>
+          <div class="form-group"><label>Basic Salary (₹)</label><input type="number" step="0.01" id="s-basic" oninput="calcNetSalary()" required></div>
+          <div class="form-group"><label>Allowance (₹)</label><input type="number" step="0.01" id="s-allow" oninput="calcNetSalary()" value="0"></div>
+          <div class="form-group"><label>Deduction (₹)</label><input type="number" step="0.01" id="s-deduct" oninput="calcNetSalary()" value="0"></div>
+          <div class="form-group"><label>Calculated Net Salary (₹)</label><input type="text" id="s-net" readonly style="background:#F8FAFC; font-weight:bold; color:var(--primary-blue);"></div>
+          <div class="form-group" style="justify-content: flex-end;"><button type="submit" class="btn-primary">Save Salary</button></div>
+        </form>
+      </div>
+      <div class="content-card">
+        <h3>Configured Salary Structures</h3>
+        <table id="salary-table">
+          <thead><tr><th>Employee</th><th>Department</th><th>Basic Salary</th><th>Allowance</th><th>Deduction</th><th>Net Salary</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="main.js"></script>
+  <script>initSalaries();</script>
+</body>
+</html>

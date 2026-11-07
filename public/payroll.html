@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payroll Processing - HR Payroll System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-logo">
+  <img src="logo1.png" alt="Company Logo" style="width: 32px; height: 32px; border-radius: 6px;"> 
+  PayMaster HR
+</div>
+    <ul class="nav-links">
+      <li><a href="index.html"><i class="fa-solid fa-chart-pie"></i> Dashboard</a></li>
+      <li><a href="employees.html"><i class="fa-solid fa-users"></i> Employees</a></li>
+      <li><a href="salary.html"><i class="fa-solid fa-wallet"></i> Salary Details</a></li>
+      <li><a href="payroll.html" class="active"><i class="fa-solid fa-money-check-dollar"></i> Payroll</a></li>
+      <li><a href="reports.html"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+    </ul>
+  </div>
+  <div class="wrapper">
+    <header class="top-navbar"><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search payrolls..."></div></header>
+    <main class="main-content">
+      <h1 class="page-title">Monthly Payroll Processing</h1>
+      <div class="content-card">
+        <h3>Process Monthly Disbursement</h3>
+        <form onsubmit="handleProcessPayroll(event)" class="form-grid" style="margin-top:15px;">
+          <div class="form-group"><label>Employee</label><select id="p-emp-select" required></select></div>
+          <div class="form-group"><label>Month (1-12)</label><input type="number" min="1" max="12" id="p-month" value="11" required></div>
+          <div class="form-group"><label>Year</label><input type="number" id="p-year" value="2026" required></div>
+          <div class="form-group"><label>Payment Date</label><input type="date" id="p-date" required></div>
+          <div class="form-group"><label>Initial Status</label><select id="p-status"><option value="Paid">Paid</option><option value="Pending">Pending</option></select></div>
+          <div class="form-group" style="justify-content: flex-end;"><button type="submit" class="btn-primary">Disburse Payroll</button></div>
+        </form>
+      </div>
+      <div class="content-card">
+        <h3>Payroll Transactions</h3>
+        <table id="payroll-table">
+          <thead><tr><th>Payroll ID</th><th>Employee</th><th>Period</th><th>Net Amount</th><th>Payment Date</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="main.js"></script>
+  <script>initPayroll();</script>
+</body>
+</html>
